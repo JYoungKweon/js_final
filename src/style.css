@@ -51,18 +51,29 @@ body {
   height: 450px;
   position: relative;
   bottom: 0px;
-  right: 0px;
+
   transition: all 0.3s;
   transition-timing-function: ease-in;
+}
+
+@keyframes albumhovering {
+  0% {
+    bottom: 15px;
+  }
+  50% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: 15px;
+  }
 }
 
 .albumCover:hover {
   transition: all 0.3s;
   transition-timing-function: ease-in;
   position: relative;
-  bottom: 12px;
-  right: 12px;
-  box-shadow: 12px 12px 2px 1px #000;
+  bottom: 15px;
+  box-shadow: 0px 15px 0px #000;
   margin-top: 25px;
   margin-bottom: 25px;
   width: 450px;
@@ -70,10 +81,20 @@ body {
 }
 
 .playing {
+  animation: albumhovering 2s ease-in-out infinite;
+  transition: all 0.3s;
+  transition-timing-function: ease-in;
   position: relative;
-  bottom: 12px;
-  right: 12px;
-  box-shadow: 12px 12px 2px 1px #000;
+  bottom: 15px;
+  box-shadow: 0px 15px 0px rgb(255, 164, 164);
+}
+
+.playing:hover {
+  transition: all 0.3s;
+  transition-timing-function: ease-in;
+  position: relative;
+  bottom: 15px;
+  box-shadow: 0px 15px 0px rgb(255, 164, 164);
 }
 
 .display {
