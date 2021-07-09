@@ -4,11 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="src/style.css" />
     <title>Document</title>
   </head>
   <body>
-    <button>Give me color</button>
-    <script src="src/index.js"></script>
+    <canvas id="jsCanvas" class="canvas display"></canvas>
+    <div class="filter"></div>
+    <div class="coverContainer" id="albumCover">
+      <div class="nowPlaying">
+        <audio class="albumSing" src="sing/iu_lilac.mp3"></audio>
+        <img class="albumCover" src="albumCover/iu_lilac.jpg" />
+      </div>
+      <!--
+      <div class="nowPlaying">
+        <img class="albumCover" src="albumCover/iu_lilac.jpg" />
+      </div>
+      <div class="nowPlaying">
+        <img class="albumCover" src="albumCover/jannabi_legned.jpg" />
+      </div>
+      <div class="nowPlaying">
+        <img class="albumCover" src="albumCover/taeyeon_weekend.jpg" />
+      </div>
+      <div class="nowPlaying">
+        <img class="albumCover" src="albumCover/yoonha_supersonic.jpg" />
+      </div>
+      -->
+    </div>
+    <script src="src/js/Vibrant.js"></script>
+    <script type="module" src="src/index.js"></script>
   </body>
 </html>

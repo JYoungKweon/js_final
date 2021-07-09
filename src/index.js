@@ -1,32 +1,47 @@
-const colors = [
-  "#ef5777",
-  "#575fcf",
-  "#4bcffa",
-  "#34e7e4",
-  "#0be881",
-  "#f53b57",
-  "#3c40c6",
-  "#0fbcf9",
-  "#00d8d6",
-  "#05c46b",
-  "#ffc048",
-  "#ffdd59",
-  "#ff5e57",
-  "#d2dae2",
-  "#485460",
-  "#ffa801",
-  "#ffd32a",
-  "#ff3f34",
-];
+import { App } from "./js/app.js";
 
-const button = document.querySelector("button");
-const body = document.querySelector("body");
+let canvas = document.getElementById("jsCanvas");
+let album = document.querySelectorAll(".albumCover");
+let sing = document.querySelector(".albumSing");
+let audioToggle = false;
+const colors = [];
+let back = new App();
 
-function handleButton() {
-  const colorStart = colors[Math.floor(Math.random() * colors.length)];
-  const colorEnd = colors[Math.floor(Math.random() * colors.length)];
-  body.style.backgroundImage =
-    "linear-gradient(to right, " + colorStart + ", " + colorEnd + ")";
+//console.log(sing);
+
+for (let i = 0; i < album.length; i++) {
+  //console.log(album);
+  album[i].addEventListener("click", () => {
+    //console.log(audioToggle);
+    playSing(album[i]);
+    album[i].classList.toggle("playing");
+    canvas.classList.toggle("display");
+  });
 }
 
-button.addEventListener("click", handleButton);
+function playSing(img) {
+  if (!audioToggle) {
+    getBackgroundColor(img);
+    sing.play();
+    back.draw(colors);
+    audioToggle = true;
+  } else {
+    sing.pause();
+    back.stopDraw();
+    audioToggle = false;
+  }
+}
+
+function getBackgroundColor(img) {
+  //console.log("new");
+  const vibrant = new Vibrant(img, 256, 1);
+  const swatches = vibrant.swatches();
+  for (const swatch in swatches) {
+    if (swatches.hasOwnProperty(swatch) && swatches[swatch]) {
+      colors.push(swatches[swatch].getHex());
+      //console.log(swatches[swatch].getHex());
+    }
+  }
+}
+
+window.onload = () => {};
