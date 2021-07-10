@@ -15,7 +15,7 @@ let weatherIcon = {
 function onGeoOk(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
-  console.log("You Live in ", lat, lon);
+  //console.log("You Live in ", lat, lon);
   const url = `
     https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
   fetch(url)
@@ -27,8 +27,8 @@ function onGeoOk(position) {
         weather.classList,
         weatherIcon[iconData].split(" ")
       );
-      console.log(weatherIcon[iconData]);
-      console.log(weather);
+      //console.log(weatherIcon[iconData]);
+      //console.log(weather);
     });
 }
 function onGeoError() {

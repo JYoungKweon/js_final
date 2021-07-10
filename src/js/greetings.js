@@ -11,6 +11,8 @@ const USERNAME_KEY = "username";
 
 //console.log(loginDiv);
 
+let loginFlag = false;
+
 function onLoginSubmit(event) {
   event.preventDefault();
   loginDiv.classList.add(HIDDEN_CLASSNAME);
@@ -18,6 +20,7 @@ function onLoginSubmit(event) {
   const username = loginInput.value;
 
   localStorage.setItem(USERNAME_KEY, username);
+  loginFlag = true;
   paintGreetings(username);
 }
 
@@ -40,14 +43,16 @@ if (savedusername === null) {
 loginDiv.addEventListener("mouseover", showAgain);
 
 function showAgain() {
-  document.querySelector(".hidden").style.top = "0px";
-  document.querySelector(".hidden").style.opacity = "1";
+  if (loginFlag) {
+    document.querySelector(".hidden").style.top = "0px";
+    document.querySelector(".hidden").style.opacity = "1";
+  }
 }
 
 loginDiv.addEventListener("mouseout", hideAgain);
 function hideAgain() {
   let clickFlag = getClickFlag();
-  if (clickFlag !== 1) {
+  if (clickFlag !== 1 && loginFlag) {
     document.querySelector(".hidden").style.top = "-50px";
     document.querySelector(".hidden").style.opacity = "0";
   }

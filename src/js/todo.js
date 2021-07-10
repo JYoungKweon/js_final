@@ -11,7 +11,6 @@ const greeting = document.querySelector("#greeting");
 
 import { navMode1, navMode2, navMode3 } from "../index.js";
 import { paintGreetings } from "./greetings.js";
-//550&900
 navBar.addEventListener("click", showToDo);
 let todoFlag = false;
 let creditFlag = false;
@@ -42,7 +41,7 @@ export function getClickFlag() {
 
 const username = localStorage.getItem("username");
 function showToDo() {
-  console.log("currentFlag :" + clickFlag);
+  //console.log("currentFlag :" + clickFlag);
   if (clickFlag === 0) {
     navStyle2();
     greeting.innerText = "TO DO LIST";
@@ -122,10 +121,12 @@ function paintToDo(newTodoObj) {
   //const button = document.createElement("button");
   //button.innerText = "X";
   span.addEventListener("click", deleteToDo);
+  span.addEventListener("mouseover", askDeleteToDo);
+  span.addEventListener("mouseout", cancelDeleteToDo);
 
   li.appendChild(span);
   //li.appendChild(button);
-  console.log(li);
+  //console.log(li);
   toDoList.appendChild(li);
 }
 
@@ -139,7 +140,7 @@ function handleToDoSubmit(event) {
   };
   toDos.push(newTodoObj);
   paintToDo(newTodoObj);
-  console.log(toDoInput.value);
+  //console.log(toDoInput.value);
   saveToDos();
 }
 
@@ -150,12 +151,6 @@ if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
   toDos = parsedToDos;
   parsedToDos.forEach(paintToDo);
-}
-
-const todoLists = document.querySelectorAll(".todo li span");
-for (let i = 0; i < todoLists.length; i++) {
-  todoLists[i].addEventListener("mouseover", askDeleteToDo);
-  todoLists[i].addEventListener("mouseout", cancelDeleteToDo);
 }
 
 function askDeleteToDo(event) {

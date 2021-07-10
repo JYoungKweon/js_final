@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="src/style.css" />
-    <title>Document</title>
+    <title>RMP-Random Music Player</title>
   </head>
   <body>
     <div class="wellcome hidden" id="topbar">
@@ -34,22 +34,8 @@
         </div>
         <audio loop class="albumSing"></audio>
         <div class="albumCover"><img /></div>
-        <div class="audioControlArea">adfasdfasdfasdfadsfSASDF</div>
+        <div class="audioControlArea">CHANGE MUSIC</div>
       </div>
-      <!--
-      <div class="nowPlaying">
-        <img class="albumCover" src="albumCover/iu_lilac.jpg" />
-      </div>
-      <div class="nowPlaying">
-        <img class="albumCover" src="albumCover/jannabi_legned.jpg" />
-      </div>
-      <div class="nowPlaying">
-        <img class="albumCover" src="albumCover/taeyeon_weekend.jpg" />
-      </div>
-      <div class="nowPlaying">
-        <img class="albumCover" src="albumCover/yoonha_supersonic.jpg" />
-      </div>
-      -->
     </div>
     <div class="navBar">
       <div class="musicInfo">
@@ -72,12 +58,22 @@
         <div class="colorT"><span></span></div>
       </div>
     </div>
+
+    <div id="too-small">
+      <span>Screen width should bigger than 550</span>
+    </div>
+
+    <div id="too-short">
+      <span>Screen width should higher than 900</span>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
     <script
       src="https://kit.fontawesome.com/6478f529f2.js"
       crossorigin="anonymous"
     ></script>
     <script type="module" src="src/js/greetings.js"></script>
+    <script type="module" src="src/js/newRandomSong.js"></script>
     <script type="module" src="src/index.js"></script>
     <script src="src/js/clock.js"></script>
     <script type="module" src="src/js/todo.js"></script>

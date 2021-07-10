@@ -52,11 +52,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  height: 900px;
+  width: 450px;
+  height: 600px;
 }
 
 .albumCover {
+  cursor: pointer;
   margin-top: 2px;
   margin-bottom: 25px;
   width: 450px;
@@ -78,7 +79,7 @@ body {
     bottom: 0px;
   }
   50% {
-    bottom: 15px;
+    bottom: 20px;
   }
   100% {
     bottom: 0px;
@@ -114,18 +115,26 @@ body {
 .audioControlArea {
   transition: all 0.5s;
   transition-timing-function: ease-in-out;
-  opacity: 0;
-  position: absolute;
-  bottom: 191px;
+  position: inherit;
+  opacity: 1;
+  bottom: 70px;
   width: 450px;
   height: 100px;
   background-color: var(--main-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "digital-7-mono";
+  cursor: pointer;
+  font-size: 35px;
+  z-index: 0;
+  color: var(--sub-color);
 }
 
 .audioControlArea:hover {
   transition: all 0.5s;
   transition-timing-function: ease-in-out;
-  bottom: 150px;
+  bottom: 30px;
   opacity: 1;
   background-color: var(--main-bg-color);
 }
@@ -193,7 +202,7 @@ body {
   transition: all 0.5s;
   transition-timing-function: ease-in-out;
   opacity: 1;
-  z-index: 98;
+  z-index: 97;
   width: 100%;
   height: 100%;
   background-color: var(--main-bg-color);
@@ -253,7 +262,7 @@ body {
 
 .greeting {
   display: flex;
-  z-index: 99;
+  z-index: 98;
   color: var(--sub-color);
   font-size: 60px;
   font-family: "digital-7-mono";
@@ -370,7 +379,7 @@ a:hover {
 }
 
 .todo {
-  z-index: 98;
+  z-index: 96;
 }
 
 .todo input {
@@ -415,4 +424,47 @@ a:hover {
 
 #todo-list li span:hover {
   color: rgb(189, 40, 40);
+}
+
+#too-small {
+  position: absolute;
+  z-index: 99;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "digital-7-mono";
+  font-size: 40px;
+  color: rgb(189, 40, 40);
+  top: 0px;
+}
+
+#too-short {
+  position: absolute;
+  z-index: 99;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "digital-7-mono";
+  text-align: center;
+  font-size: 40px;
+  color: rgb(189, 40, 40);
+  top: 0px;
+}
+
+@media screen and (min-width: 550px) {
+  #too-small {
+    display: none;
+  }
+}
+
+@media screen and (min-height: 900px) {
+  #too-short {
+    display: none;
+  }
 }
