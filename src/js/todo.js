@@ -14,6 +14,17 @@ import { paintGreetings } from "./greetings.js";
 //550&900
 navBar.addEventListener("click", showToDo);
 let todoFlag = false;
+let creditFlag = false;
+
+credit.addEventListener("mouseover", () => {
+  creditFlag = true;
+  //console.log(todoFlag);
+});
+
+credit.addEventListener("mouseout", () => {
+  creditFlag = false;
+  //console.log(todoFlag);
+});
 
 toDo.addEventListener("mouseover", () => {
   todoFlag = true;
@@ -50,12 +61,14 @@ function showToDo() {
       clickFlag++;
     }
   } else {
-    navStyle3();
-    toDo.classList.add("display");
-    credit.classList.add("display");
-    musicInfo.classList.remove("display");
-    paintGreetings(username);
-    clickFlag = 0;
+    if (!creditFlag) {
+      navStyle3();
+      toDo.classList.add("display");
+      credit.classList.add("display");
+      musicInfo.classList.remove("display");
+      paintGreetings(username);
+      clickFlag = 0;
+    }
   }
 }
 

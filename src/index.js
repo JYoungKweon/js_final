@@ -1,5 +1,5 @@
 import { App } from "./js/app.js";
-import { hexToComplimentary } from "./js/complimentColor.js";
+//import { hexToComplimentary } from "./js/complimentColor.js";
 import { musics } from "./js/musicDB.js";
 import "./js/todo.js";
 
@@ -114,9 +114,9 @@ export function navMode2() {
   console.log("call nav2");
   navBarMusicTitle.innerText = "";
   navBarSinger.innerText = "";
-  navBarThank.innerText = "THANKS TO: NOMADCODER & INTERACTIVE DEVELOPER";
-  navBarDesigned.innerText = "DESIGNED BY: JEON_YK";
-  navBarColorT.innerText = "EXTRACT COLOR WITH COLOR_THEIF";
+  navBarThank.innerHTML = `THANKS TO: <a href="https://nomadcoders.co/" target="_blank">NOMADCODER</a> & <a href="https://www.youtube.com/user/cmiscm" target="_blank">INTERACTIVE DEVELOPER</a>`;
+  navBarDesigned.innerHTML = `<a href="https://github.com/JYoungKweon" target="_blank">DESIGNED BY: JEON_YK</a>`;
+  navBarColorT.innerHTML = `<a href="https://lokeshdhakar.com/projects/color-thief/" target="_blank">EXTRACT COLOR WITH COLOR_THEIF</a>`;
   navBarThank.style.marginBottom = "10px";
   navBarDesigned.style.marginBottom = "25px";
   navBarColorT.style.marginBottom = "10px";

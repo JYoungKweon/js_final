@@ -314,23 +314,59 @@ input[type="submit"]:hover {
   opacity: 1;
 }
 
+a:link {
+  color: var(--sub-color);
+  text-decoration: none;
+}
+a:visited {
+  color: var(--sub-color);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--sub-color);
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #000;
+  color: rgb(145, 197, 70);
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
 .thanksTo {
   font-size: 25px;
   font-family: "digital-7-mono";
   text-align: center;
   margin-bottom: 10px;
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
 }
 
 .designedBy {
   font-size: 45px;
   font-family: "digital-7-mono";
   margin-bottom: 25px;
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
 }
 
 .colorT {
   font-size: 20px;
   font-family: "digital-7-mono";
   margin-bottom: 10px;
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.thanksTo:hover {
+  cursor: pointer;
+  background-color: #000;
+  color: rgb(145, 197, 70);
+}
+
+.colorT:hover {
+  cursor: pointer;
+  background-color: #000;
+  color: rgb(145, 197, 70);
 }
 
 .todo {
