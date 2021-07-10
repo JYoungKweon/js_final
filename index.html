@@ -9,12 +9,32 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="wellcome hidden" id="topbar">
+      <form class="wellcome display loginForm" id="login-form">
+        <input
+          class="loginForm"
+          required
+          maxlength="15"
+          type="text"
+          placeholder="What's your name?"
+        />
+        <input class="loginForm" type="submit" value="Log-In" />
+      </form>
+      <div id="greeting" class="greeting display"></div>
+    </div>
     <canvas id="jsCanvas" class="canvas display"></canvas>
     <div class="filter"></div>
     <div class="coverContainer" id="albumCover">
       <div class="nowPlaying">
+        <div class="albumTop">
+          <div class="clock">00:00:00</div>
+          <div class="weather">
+            <i class=""></i>
+          </div>
+        </div>
         <audio loop class="albumSing"></audio>
-        <img class="albumCover" />
+        <div class="albumCover"><img /></div>
+        <div class="audioControlArea">adfasdfasdfasdfadsfSASDF</div>
       </div>
       <!--
       <div class="nowPlaying">
@@ -31,7 +51,14 @@
       </div>
       -->
     </div>
+    <script src="src/js/greetings.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script
+      src="https://kit.fontawesome.com/6478f529f2.js"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="src/index.js"></script>
+    <script src="src/js/clock.js"></script>
+    <script src="src/js/weather.js"></script>
   </body>
 </html>

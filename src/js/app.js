@@ -24,7 +24,7 @@ export class App {
 
     this.stop = false;
     this.frameCount = 0;
-    this.fps = 24;
+    this.fps = 60;
 
     this.canvas = document.getElementById("jsCanvas");
     this.ctx = this.canvas.getContext("2d");
