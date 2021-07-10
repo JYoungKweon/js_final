@@ -1,3 +1,5 @@
+import { getClickFlag } from "./todo.js";
+
 const loginDiv = document.querySelector(".wellcome");
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
@@ -6,6 +8,7 @@ const greeting = document.querySelector("#greeting");
 const HIDDEN_CLASSNAME = "hidden";
 const DISPLAY_CLASSNAME = "display";
 const USERNAME_KEY = "username";
+
 //console.log(loginDiv);
 
 function onLoginSubmit(event) {
@@ -18,7 +21,7 @@ function onLoginSubmit(event) {
   paintGreetings(username);
 }
 
-function paintGreetings(username) {
+export function paintGreetings(username) {
   greeting.innerText = `Hello, "${username}"`;
   greeting.classList.remove(DISPLAY_CLASSNAME);
 }
@@ -37,10 +40,15 @@ if (savedusername === null) {
 loginDiv.addEventListener("mouseover", showAgain);
 
 function showAgain() {
+  document.querySelector(".hidden").style.top = "0px";
   document.querySelector(".hidden").style.opacity = "1";
 }
 
 loginDiv.addEventListener("mouseout", hideAgain);
 function hideAgain() {
-  document.querySelector(".hidden").style.opacity = "0";
+  let clickFlag = getClickFlag();
+  if (clickFlag !== 1) {
+    document.querySelector(".hidden").style.top = "-50px";
+    document.querySelector(".hidden").style.opacity = "0";
+  }
 }

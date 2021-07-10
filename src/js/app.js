@@ -30,10 +30,10 @@ export class App {
     this.ctx = this.canvas.getContext("2d");
     this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
 
-    this.totalParticles = 10;
+    this.totalParticles = 12;
     this.particles = [];
-    this.maxRadius = 1000;
-    this.minRadius = 400;
+    this.maxRadius = 900;
+    this.minRadius = 500;
   }
 
   draw(color) {

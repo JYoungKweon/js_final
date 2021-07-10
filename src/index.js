@@ -1,6 +1,7 @@
 import { App } from "./js/app.js";
 import { hexToComplimentary } from "./js/complimentColor.js";
 import { musics } from "./js/musicDB.js";
+import "./js/todo.js";
 
 let canvas = document.getElementById("jsCanvas");
 const albumDiv = document.querySelector(".albumCover");
@@ -10,6 +11,8 @@ const clock = document.querySelector(".clock");
 const albumTop = document.querySelector(".albumTop");
 const singContainer = document.querySelector(".nowPlaying");
 const weatherIcon = document.querySelector(".weather i");
+const hiddenDiv = document.getElementById("topbar");
+const hide = document.querySelectorAll(".hidden");
 let audioToggle = false;
 let mainColor;
 let subColor;
@@ -51,20 +54,20 @@ function getBackgroundColor(img) {
 
   if (img.complete) {
     color = colorThief.getColor(img);
-    colorpallete = colorThief.getPalette(img, 10, 1);
+    colorpallete = colorThief.getPalette(img, 5, 1);
   } else {
     Image.addEventListener("load", function () {
       color = colorThief.getColor(img);
-      colorpallete = colorThief.getPalette(img, 10, 1);
+      colorpallete = colorThief.getPalette(img, 5, 1);
     });
   }
   mainColor = rgbToHex(color[0], color[1], color[2]);
-  subColor = hexToComplimentary(mainColor);
-  //subColor = rgbToHex(
-  //  colorpallete[2][0],
-  //  colorpallete[2][1],
-  //  colorpallete[2][2]
-  //);
+  //subColor = hexToComplimentary(mainColor);
+  subColor = rgbToHex(
+    colorpallete[4][0],
+    colorpallete[4][1],
+    colorpallete[4][2]
+  );
   colors.push(rgbToHex(color[0], color[1], color[2]));
   for (let i = 0; i < colorpallete.length; i++) {
     colors.push(
@@ -89,6 +92,50 @@ const firstMusic = musics[Math.floor(Math.random() * musics.length)];
 //console.log(firstMusic.musicAlbumFile);
 sing.src = `sing/${firstMusic.musicFile}`;
 
+const navBarMusicTitle = document.querySelector(".navBar li:first-child");
+const navBarSinger = document.querySelector(".navBar li:nth-child(2)");
+const navBarThank = document.querySelector(".thanksTo");
+const navBarDesigned = document.querySelector(".designedBy");
+const navBarColorT = document.querySelector(".colorT");
+
+export function navMode1() {
+  console.log(firstMusic.musicTitle);
+  navBarMusicTitle.innerText = `- ${firstMusic.musicTitle} -`;
+  navBarSinger.innerText = `${firstMusic.musicSinger}`;
+  navBarThank.innerText = "";
+  navBarDesigned.innerText = "";
+  navBarColorT.innerText = "";
+  navBarThank.style.marginBottom = "0px";
+  navBarDesigned.style.marginBottom = "0px";
+  navBarColorT.style.marginBottom = "0px";
+}
+
+export function navMode2() {
+  console.log("call nav2");
+  navBarMusicTitle.innerText = "";
+  navBarSinger.innerText = "";
+  navBarThank.innerText = "THANKS TO: NOMADCODER & INTERACTIVE DEVELOPER";
+  navBarDesigned.innerText = "DESIGNED BY: JEON_YK";
+  navBarColorT.innerText = "EXTRACT COLOR WITH COLOR_THEIF";
+  navBarThank.style.marginBottom = "10px";
+  navBarDesigned.style.marginBottom = "25px";
+  navBarColorT.style.marginBottom = "10px";
+  console.log(navBarDesigned.innerText);
+}
+
+export function navMode3() {
+  navBarMusicTitle.innerText = "";
+  navBarSinger.innerText = "";
+  navBarThank.innerText = "";
+  navBarDesigned.innerText = "";
+  navBarColorT.innerText = "";
+  navBarThank.style.marginBottom = "0px";
+  navBarDesigned.style.marginBottom = "0px";
+  navBarColorT.style.marginBottom = "0px";
+}
+
+navMode1();
+
 for (let i = 0; i < album.length; i++) {
   //console.log(album);
   album[i].src = `albumCover/${firstMusic.musicAlbumFile}`;
@@ -97,19 +144,23 @@ for (let i = 0; i < album.length; i++) {
     if (audioToggle) {
       singContainer.classList.add("playing");
       document.querySelector(".audioControlArea").style.opacity = "1";
+      document.querySelector(".filter").style.backgroundColor =
+        "rgba(255,255,255,0.1)";
       weatherIcon.classList.add("weatherPlaying");
       clock.classList.add("clockplaying");
       albumTop.classList.add("albumTopPlaying");
       albumDiv.classList.add("shadow");
-      //album[i].classList.add("playing");
     } else {
+      document.documentElement.style.setProperty("--main-bg-color", "#000");
+      document.documentElement.style.setProperty("--sub-color", "#fff");
+      document.querySelector(".filter").style.backgroundColor =
+        "rgba(0, 0, 0, 0.6)";
       document.querySelector(".audioControlArea").style.opacity = "0";
       weatherIcon.classList.remove("weatherPlaying");
       clock.classList.remove("clockplaying");
       albumTop.classList.remove("albumTopPlaying");
       singContainer.classList.remove("playing");
       albumDiv.classList.remove("shadow");
-      //album[i].classList.remove("playing");
     }
     canvas.classList.toggle("display");
   });
